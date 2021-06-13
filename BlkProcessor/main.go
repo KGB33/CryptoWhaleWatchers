@@ -32,11 +32,11 @@ func main() {
 	// Define what Queue to publish on
 	q, err := ch.QueueDeclare(
 		queueName, // name
-		false,          // durable
-		false,          // delete when unused
-		false,          // exclusive
-		false,          // no-wait
-		nil,            // arguments
+		false,     // durable
+		false,     // delete when unused
+		false,     // exclusive
+		false,     // no-wait
+		nil,       // arguments
 	)
 	if err != nil {
 		log.Fatalf("Failed to create a Queue: %s\n", err)
@@ -44,12 +44,12 @@ func main() {
 
 	hashes, err := ch.Consume(
 		q.Name,
-		"",     // consumer
-		true,   // auto-ack
-		false,  // exclusive
-		false,  // no-local
-		false,  // no-wait
-		nil,    // args
+		"",    // consumer
+		true,  // auto-ack
+		false, // exclusive
+		false, // no-local
+		false, // no-wait
+		nil,   // args
 	)
 
 	forever := make(chan bool)
