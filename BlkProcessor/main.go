@@ -51,6 +51,9 @@ func main() {
 		false, // no-wait
 		nil,   // args
 	)
+	if err != nil {
+		log.Fatalf("Unable to consume channel: %s", err)
+	}
 
 	forever := make(chan bool)
 	go func() {

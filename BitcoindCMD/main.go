@@ -25,10 +25,17 @@ func main() {
 
 	switch os.Args[1] {
 	case "startup":
-		startup.Parse(os.Args[2:])
+		if err := startup.Parse(os.Args[2:]); err != nil {
+			fmt.Printf("Unable to parse provided flags: %s\n", err)
+			os.Exit(1)
+		}
 		handleStartupCMD(*startupMessagePtr)
 	case "block":
-		block.Parse(os.Args[2:])
+		if err := block.Parse(os.Args[2:]); err != nil {
+			fmt.Printf("Unable to parse provided flags: %s\n", err)
+			os.Exit(1)
+		}
+		handleStartupCMD(*startupMessagePtr)
 		handleBlockCMD(*blockHashPtr)
 	default:
 		flag.PrintDefaults()
