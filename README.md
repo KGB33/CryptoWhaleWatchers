@@ -1,7 +1,7 @@
 # Goal
 
 An event driven system that will connect to the BTC and ETH blockchains,
-and emit an event when a large transaction takes place. 
+and emit an event when a large transaction takes place.
 
 I can use Server-Sent Events (SSE) to send the data to any clients that register.
 
