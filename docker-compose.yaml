@@ -1,0 +1,34 @@
+services:
+
+    bitcoind:
+        build:
+            context: ./BitcoindCMD
+        volumes:
+            - ${HOME}/.bitcoin:/bitcoin
+        restart: always
+        depends_on:
+            - message-broker
+        networks:
+            - primary
+
+    blk-processor:
+        build:
+            context: ./BlkProcessor
+        restart: always
+        depends_on:
+            - message-broker
+            - bitcoind
+        networks:
+            - primary
+
+    message-broker:
+        image: rabbitmq:latest
+        ports:
+            - 5672:5672
+        restart: always
+        networks:
+            - primary
+
+networks:
+  primary:
+    driver: bridge
