@@ -48,7 +48,7 @@ func main() {
 // TODO: ^^
 func handleBlockCMD(hash string) {
 	// Create a connection to the RabbitMQ Server
-	conn, err := amqp.Dial("amqp://guest:guest@localhost:5672/")
+	conn, err := amqp.Dial("amqp://guest:guest@message-broker:5672/")
 	if err != nil {
 		fmt.Printf("Unable to connect to RabbitMQ server: %s\n", err)
 		os.Exit(1)

@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	addr := "amqp://guest:guest@localhost:5672/"
+	addr := "amqp://guest:guest@message-broker:5672/"
 	queueName := "NewBlockHash"
 
 	// Create a connection to the RabbitMQ Server
