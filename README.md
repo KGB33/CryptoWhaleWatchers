@@ -33,3 +33,6 @@ bitcoind \
 -startupnotify="/home/kgb33/Code/CryptoWhaleWatchers/BitcoindCMD/BitcoindCMD startup" \
 -blocknotify="/home/kgb33/Code/CryptoWhaleWatchers/BitcoindCMD/BitcoindCMD block --hash %s"
 ```
+
+# Resources
+[Working with RabbitMQ in Golang by examples](https://dev.to/koddr/working-with-rabbitmq-in-golang-by-examples-2dcn#toc)
