@@ -1,38 +1,27 @@
-# Goal
 
-An event driven system that will connect to the BTC and ETH blockchains,
-and emit an event when a large transaction takes place.
+#  CryptoWhaleWatchers
 
-I can use Server-Sent Events (SSE) to send the data to any clients that register.
-
-# RabbitMQ
-Run it from [Docker](https://registry.hub.docker.com/_/rabbitmq/)
-
-The below command also has the management portal enabled by default (on port 15672).
-```
-docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management
-```
+An event driven notification system for the Bitcoin Blockchain.
 
 
-# Interfacing with bitcoind
+## Deployment
 
-Bitcoind has the ability to run certain commands on some triggers.
-For example, to run a command at startup:
+Unfortunatly, to run the project you will set up a Bitcoin "Full Node".
+This setup involes downloading the entire blockchain, about 370 GB.
+You will also need Docker and Docker Compose.
 
-```
-bitcoind -startupnotify=<cmd>
-bitcoind -startupnotify="/home/kgb33/Code/CryptoWhaleWatchers/bitcoind_CMD/bitcoindCMD startup"
+  - [Bitcoind](https://bitcoin.org/en/full-node#what-is-a-full-node)
+  - [Docker](https://docs.docker.com/get-docker/)
+  - [Docker Compose](https://github.com/docker/compose)
+
+To run the code:
+
+```bash
+git clone git@github.com:KGB33/CryptoWhaleWatchers.git
+cd CryptoWhaleWatchers
+docker-compose up [--build]
 ```
 
-Their is also `-blocknotify=<cmd>`, which can inject the hash of the new block too!
+## Resources
 
-
-Full Example:
-```
-bitcoind \
--startupnotify="/home/kgb33/Code/CryptoWhaleWatchers/BitcoindCMD/BitcoindCMD startup" \
--blocknotify="/home/kgb33/Code/CryptoWhaleWatchers/BitcoindCMD/BitcoindCMD block --hash %s"
-```
-
-# Resources
 [Working with RabbitMQ in Golang by examples](https://dev.to/koddr/working-with-rabbitmq-in-golang-by-examples-2dcn#toc)
