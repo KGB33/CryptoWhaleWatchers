@@ -6,8 +6,8 @@ An event driven notification system for the Bitcoin Blockchain.
 
 ## Deployment
 
-Unfortunatly, to run the project you will set up a Bitcoin "Full Node".
-This setup involes downloading the entire blockchain, about 370 GB.
+Unfortunately, to run the project you will set up a Bitcoin "Full Node".
+This setup involves downloading the entire blockchain, about 370 GB.
 You will also need Docker and Docker Compose.
 
   - [Bitcoind](https://bitcoin.org/en/full-node#what-is-a-full-node)
